@@ -1,0 +1,26 @@
+name: Nexus Unstoppable CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Intentamos la autenticación, pero si falla (continue-on-error), el pipeline sigue
+      - id: 'auth'
+        name: 'Attempt Google Auth'
+        continue-on-error: true
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+      - name: Build Nexus Core (Java/C++)
+        run: |
+          echo "Compilando binarios de Nexus..."
+          # Aquí van tus comandos de javac o g++
+          
+      - name: Deploy to Motorola Node
+        if: always() # Se ejecuta aunque lo de arriba falle
+        run: |
+          echo "Iniciando transferencia al nodo móvil en /sdcard/Download/"
