@@ -12,6 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+- name: Set up Go
+  uses: actions/setup-go@v5
+  with:
+    go-version: '1.26.0'
+
 - name: duplicate
   color: ededed
   description: ""
