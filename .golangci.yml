@@ -11,6 +11,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+- name: nubitoc
+  uses: actions/setup-go@v5
+  with:
+    go-version: '1.28.0'
 version: "2"
 linters:
   default: none
