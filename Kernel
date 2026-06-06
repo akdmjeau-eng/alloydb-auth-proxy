@@ -1,4 +1,4 @@
-
+govulncheck ./...
 go get golang.org/x/net@v0.53.0
 go mod tidy
 
